@@ -15,11 +15,12 @@ const Page = async () => {
   })
   return (
     <>
-      <main>
-        <article>
+      <main className='max-w-4xl mx-auto p-4 space-y-8'>
+        <article className='space-y-4'>
           <Badge />
-          <h1>Payload 3.0 - {payload?.config?.collections?.length} collections loaded</h1>{' '}
-          <p>
+          <h1 className='text-4xl font-bold'>Payload 3.0 with Tailwind CSS</h1>
+          <p className='animate-pulse'>{payload?.config?.collections?.length} collections loaded</p>{' '}
+          <p className='text-xs'>
             This BETA is rapidly evolving, you can report any bugs against{' '}
             <Link href="https://github.com/payloadcms/payload-3.0-demo/issues" target="_blank">
               the repo
@@ -34,12 +35,13 @@ const Page = async () => {
             . Payload is running at <Link href="/admin">/admin</Link>. An example of a custom route
             running the Local API can be found at <Link href="/my-route">/my-route</Link>.
           </p>
-          <p>You can use the Local API in your server components like this:</p>
         </article>
-        <div className="codeBlock">
-          <pre>
-            <code>
-              {`import { getPayloadHMR } from '@payloadcms/next/utilities'
+        <div className='space-y-4'>
+          <h2 className='text-xl'>You can use the Local API in your server components like this:</h2>
+          <div className="codeBlock bg-black text-white p-4 rounded">
+            <pre>
+              <code>
+                {`import { getPayloadHMR } from '@payloadcms/next/utilities'
 import config from '@payload-config'
 const payload = await getPayloadHMR({ config })
 const data = await payload.find({
@@ -47,15 +49,20 @@ const data = await payload.find({
 })
 return <Pages data={data} />
 `}
-            </code>
-          </pre>
+              </code>
+            </pre>
+          </div>
         </div>
-        <p>This is the example in action - here is a list of all page titles:</p>
-        <ul>
-          {data.docs.map((doc) => (
-            <li key={doc.id}>{doc.title ?? 'No title'}</li>
-          ))}
-        </ul>
+        <div className='space-y-4'>
+          <h2 className='text-xl'>This is the example in action - here is a list of all page titles:</h2>
+          <ul>
+            {data.docs.map((doc) => (
+              <li key={doc.id} className='border p-4 rounded'>
+                {doc.title ?? 'No title'}
+              </li>
+            ))}
+          </ul>
+        </div>
       </main>
       <Background />
     </>

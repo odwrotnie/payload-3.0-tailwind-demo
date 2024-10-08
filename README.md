@@ -1,4 +1,4 @@
-# Payload 3.0 Beta Demo
+# Payload 3.0 Beta Demo with Tailwind CSS
 
 This repo showcases a demo of the Payload 3.0 Beta running completely within Next.js.
 

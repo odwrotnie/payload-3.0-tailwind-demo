@@ -126,14 +126,10 @@ export interface PayloadLockedDocument {
         value: string | Media;
       } | null);
   globalSlug?: string | null;
-  _lastEdited: {
-    user: {
-      relationTo: 'users';
-      value: string | User;
-    };
-    editedAt?: string | null;
+  user: {
+    relationTo: 'users';
+    value: string | User;
   };
-  isLocked?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
